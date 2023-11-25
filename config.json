@@ -1,0 +1,8 @@
+{
+  "BasePackage": "com.yunx.ldct",
+  "BasePath": "/Users/yugj/mdev/yugj/sql-to-java",
+  "Author": "yugj",
+  "ParentEntityName": "AbstractEntity",
+  "ParentEntityFields": "id,createTime,modifyTime,createBy,modifyBy",
+  "TablePrefix": "t_"
+}
