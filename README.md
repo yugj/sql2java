@@ -12,11 +12,28 @@ a tool to generate java files from create table sql
 ```
 sh build.sh
 ```
+Or download the [compiled file ](https://github.com/yugj/sql2java/releases)
 
 ### 3.2 Config template for your project
-[examples](https://github.com/yugj/sql2java/master/examples)
+[examples](https://github.com/yugj/sql2java/tree/master/templates)
 
 ### 3.3 Generate java file
+switch to sql2java folder like this:
+```
+├── config.json
+├── sql2java
+├── table.sql
+└── templates
+    ├── controller.tpl
+    ├── dao.tpl
+    ├── entity.tpl
+    ├── mapper.tpl
+    ├── request.tpl
+    ├── service.tpl
+    └── service_impl.tpl
+```
+
+run
 ```
 ./sql2java table.sql
 
@@ -33,7 +50,7 @@ or
 
 ### 4.2 config.json
 
-[example](https://github.com/yugj/sql2java/master/config.json)
+[example](https://github.com/yugj/sql2java/blob/master/config.json)
 
 ```json
 {
