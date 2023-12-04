@@ -41,6 +41,35 @@ or
 ./sql2java table.sql config.json
 ```
 
+output
+```shell
+└── com
+    └── yunx
+        └── ldct
+            ├── controller
+            │   ├── ProductController.java
+            │   └── UserController.java
+            ├── dao
+            │   ├── ProductDao.java
+            │   └── UserDao.java
+            ├── entity
+            │   ├── ProductEntity.java
+            │   └── UserEntity.java
+            ├── mapper
+            │   ├── ProductMapper.java
+            │   └── UserMapper.java
+            ├── model
+            │   └── request
+            │       ├── ProductRequest.java
+            │       └── UserRequest.java
+            └── service
+                ├── ProductService.java
+                ├── UserService.java
+                └── impl
+                    ├── ProductServiceImpl.java
+                    └── UserServiceImpl.java
+```
+
 ## 4. Templates Specification
 ### 4.1 naming
 * lower case
@@ -62,5 +91,11 @@ or
   "TablePrefix": "the table prefix that you dont want to act on your EntityName, t_ -> t_user -> UserEntity "
 }
 ```
+
+### 4.3 supported functions
+| function |                                                   description |             example              | 
+|:---------|--------------------------------------------------------------:|:--------------------------------:|
+ | toLower  |   returns with all Unicode letters mapped to their lower case | {{.EntityName &verbar; toLower}} | 
+ | toUpper  |   returns with all Unicode letters mapped to their upper case | {{.EntityName &verbar; toUpper}} | 
 
 the next stage will distinguish between built-in configurations and support for user-defined configurations

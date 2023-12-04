@@ -50,6 +50,7 @@ func Execute() {
 		genConfig.Author = localConfig.Author
 		genConfig.TablePrefix = localConfig.TablePrefix
 		genConfig.DateType = localConfig.DateType
+		genConfig.OutputFormat = localConfig.OutputFormat
 
 		if len(localConfig.BasePath) > 0 {
 			genConfig.BasePath = localConfig.BasePath

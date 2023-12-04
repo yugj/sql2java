@@ -15,7 +15,13 @@ func Generate(entity model.Entity, config model.GenConfig) {
 	// tpl abst path
 	var tplBase = config.BasePath + "/templates/"
 
-	tpl, err := template.ParseGlob(tplBase + "/*")
+	// register custom functions
+	funcMap := template.FuncMap{
+		"toLower": toLower,
+		"toUpper": toUpper,
+	}
+
+	tpl, err := template.New("sql2java").Funcs(funcMap).ParseGlob(tplBase + "/*")
 	if err != nil {
 		log.Println("create templates failed, err:", err)
 		return
@@ -25,6 +31,11 @@ func Generate(entity model.Entity, config model.GenConfig) {
 	for _, f := range files {
 
 		tplGenerate(convert.ToTplData(entity, config), tpl, f.Name())
+	}
+
+	// format output file in need
+	if config.OutputFormat {
+		outputFormat(config.BasePath)
 	}
 
 	log.Println("end of generate")
@@ -58,39 +69,17 @@ func tplGenerate(tplData model.TplData, tpl *template.Template, filename string)
 	}
 }
 
-func createDirIfNeed(basePath string, name string) {
-
-	var path = basePath + "/" + name
-
-	if !existsPath(path) {
-		_ = os.MkdirAll(path, os.ModePerm)
-	}
-}
-
-func existsPath(path string) bool {
-	_, err := os.Stat(path)
-	if err != nil {
-		if os.IsExist(err) {
-			return true
-		}
-		return false
-	}
-	return true
-}
-
-func openFile(destFile string) *os.File {
-	file, err := os.OpenFile(destFile, os.O_WRONLY|os.O_CREATE, 0644)
-	if err != nil {
-		log.Println("Open file err =", err)
-		panic(err)
-	}
-	//defer file.Close()
-	return file
-}
-
 func firstUpper(s string) string {
 	if s == "" {
 		return ""
 	}
 	return strings.ToUpper(s[:1]) + s[1:]
+}
+
+func toLower(s string) string {
+	return strings.ToLower(s)
+}
+
+func toUpper(s string) string {
+	return strings.ToUpper(s)
 }

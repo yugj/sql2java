@@ -19,7 +19,7 @@ func TableToEntity(table model.Table, config model.GenConfig) model.Entity {
 	var domainName = strings.ToUpper(camelName[:1]) + camelName[1:]
 
 	entity.EntityName = domainName
-	entity.Author = config.SystemUser
+	entity.Author = config.Author
 	entity.Description = table.Description
 	entity.ParentEntityName = config.ParentEntityName
 

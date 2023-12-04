@@ -39,11 +39,7 @@ type GenConfig struct {
 	TablePrefix        string // table prefix like t_
 	DateType           string // support Data&LocalDateTime, not support yet
 	ParentEntityFields string
-}
-
-type CommonDomain struct {
-	Entity Entity
-	Config GenConfig
+	OutputFormat       bool
 }
 
 // TplData built-in Params
@@ -58,4 +54,5 @@ type TplData struct {
 	SystemUser        string
 	DateTime          string
 	BasePath          string
+	OutputFormat      bool
 }

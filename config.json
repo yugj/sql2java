@@ -4,5 +4,6 @@
   "Author": "yugj",
   "ParentEntityName": "AbstractEntity",
   "ParentEntityFields": "id,createTime,modifyTime,createBy,modifyBy",
-  "TablePrefix": "t_"
+  "TablePrefix": "t_",
+  "OutputFormat": true
 }
