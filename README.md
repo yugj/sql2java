@@ -88,7 +88,8 @@ output
   "Author": "author name, default your system username",
   "ParentEntityName": "Entity parent class name, like BaseEntity",
   "ParentEntityFields": "Entity parent class fields, like id, createBy and so on, this fields will not be generated",
-  "TablePrefix": "the table prefix that you dont want to act on your EntityName, t_ -> t_user -> UserEntity "
+  "TablePrefix": "the table prefix that you dont want to act on your EntityName, t_ -> t_user -> UserEntity ",
+  "OutputFormat": "true organizing directories by package path "
 }
 ```
 
